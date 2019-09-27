@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+<title>Excel</title>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-147261423-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-147261423-1');
+</script>
+	
+<link rel="stylesheet" media="screen and (min-width:481px)" href="cv.css">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="css/clean-blog.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+<meta charset="utf-8"/>
+<script src="Plotimpo_files/htmlwidgets-1.3/htmlwidgets.js"></script>
+<script src="Plotimpo_files/plotly-binding-4.9.0/plotly.js"></script>
+<script src="Plotimpo_files/typedarray-0.1/typedarray.min.js"></script>
+<script src="Plotimpo_files/jquery-1.11.3/jquery.min.js"></script>
+<link href="Plotimpo_files/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="Plotimpo_files/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="Plotimpo_files/plotly-htmlwidgets-css-1.46.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="Plotimpo_files/plotly-main-1.46.1/plotly-latest.min.js"></script>
+</head>
+
+<body>
+
+    
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('https://professor-excel.com/wp-content/uploads/2016/01/Wallpaper_Excel_8.png)">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h2>Excel - dati</h2>
+                        <hr class="small">
+                        <h5>Uno strumento semplice e per chiunque</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+            
+        <br><p>Il primo argomento che affronteremo nell'affacciarsi ad un uso più avanzato di Excel è capire ogni tipo di formato e di dato che Excel è in grado di sopportare poi andremo ad analizzare alcuni strumenti che excel offre per importare dati da diverse risorse, quindi andremo a capire:<br>
+        <ul>
+            <li>Quali formati di file posso apire o salvare (più comuni) con Excel e come?</li>
+            <ul>
+                <li>Estensioni di Excel</li>
+                <li>Basati su file di testo</li>
+                <li>Di lettura non modificabili</li>
+            </ul>
+            <li>Quali strumenti di importazione automatica offre Excel e come si utilizzano?</li>
+            <ul>
+                <li>Formati testo/CSV</li>
+                <li>Formati XML</li>
+                <li>Dal web (webscraping)</li>
+            </ul>
+        </ul>
+
+
+
+
+        <hr><hr>
+        <h2>Quali formati di file posso apire o salvare (più comuni) con Excel e come?</h2>
+        <center><img src="img/formati.png" width="50%"><br></center>
+        <p> Questi formati sono suddivisibili (non a livello canonico dell'informatica ma solo per aiutare l'interpretazione) in tre sottocategorie:
+        </p>
+
+        <h3>Estensioni di Excel</h3>
+        <p> In questa categoria rientrano quei formati creati appositamente da Microsoft Office per Excel</p>
+        <ul>
+                <li><font color='orange'>.xls</font> foglio di calcolo creato e associato principalmente con le versioni precedenti di Microsoft Excel, in particolare dal 97 versione fino al 2003. E 'stato sostituito da Office Open formato XML (XLSX) nel 2007. Ma altri programmi gratuiti come Open Office lavorano ancora con questo formato.</li>
+                <li><font color='orange'>.xlsx</font> formato "normalmente" utilizzato per i fogli di calcolo con Excel dal 2007</li>
+                <li><font color='orange'>.xlsm</font> formato nel quale si salvano i foglio di calcolo con all'interno macro (funzioni scritte in VBA)</li>
+                <li><font color='orange'>.xlsb</font> formato che riduce le dimensione di un foglio di calcolo rispetto ai formati sopra utilizzando un linguaggio binario ma può avere problemi di compatibilità con altri programmi che non riconoscono il formato binario. <a href="https://analystcave.com/excel-working-with-large-excel-files-the-xlsb-format/">[approfondimento]</a></li>
+                <li><font color='orange'>.xltx / .xltm /.xlt </font> sono formati che identificano i file modello, ossia dei file che vengono utilizzati come file di avvio per le nuove cartelle di lavoro. I modelli contengono impostazioni salvate come il numero predefinito di fogli per cartella di lavoro, formattazione, formule, grafica e barre degli strumenti personalizzate. La differenza tra le due estensioni è che il formato XLTM può memorizzare codice macro VBA e XML mentre solitamente per creare dei templete da associare ad excel (Spreadsheet Template file)  si utilizza il formato XLTX <a href="https://www.excel-easy.com/examples/default-templates.html">[approfondimento]</a></li>
+                <li><font color='orange'>.xlam / .xla</font> sono dormati che permettono di creare dei componenti aggiuntivi per Excel (cioè creare funzioni personalizzate) <a href="https://www.youtube.com/watch?v=cvPbFwKkJBA">[approfondimento]</a></li>
+        </ul>
+
+        <h3>Basati su file di testo</h3>
+        <p>Questi formati sono in grado di contenere solo dei record non funzione o altre formattazioni grafiche per tabelle, la principali qualità di questa tipologia di formati è la loro capacità di "racchiudere tante informazioni occupando uno spazio molto piccolo", infatti in questi formati, ogni riga della tabella (o record della base dati) è normalmente rappresentata da una linea di testo, che a sua volta è divisa in campi (le singole colonne) separati da un apposito carattere separatore, ciascuno dei quali rappresenta un valore.
+        <br>I formati più comuni in questo ambito sono il <font color='orange'>.csv</font>, il <font color='orange'>.txt</font> e il <font color='orange'>.prn</font> per aprire questi formati in Excel e poterli modificare è necessario eseguire delle operazioni semplici ma senza le quali risulta complicato modifcarli o leggerli, nell'esempio sottostante faremo un esempio con un .csv in quanto risulta tra i tre il formato più usato (non useremo in questa parte lo strumento di importazione automatica dei .csv di Excel per far capire la logica sottostante a questo formato):</p>
+        
+        <br>
+        Per esempio proviamo a scarire e aprire <a href="http://giacomosaccaggi.github.io/Dati_FILM.csv">questo file ,un dataset sui film,</a> che corrisponde ad una matrice con 163 284 elementi divisi in tre colonne dove nella prima colonna c'è il titolo del film, nella seconda il voto assegnato da IMDB e nella terza il numero di persone che hanno votato.
+        <br>Una volta scaricato e aperto il file dovrebbe comparire cosi:<br>
+        <center><img src="img/csv1.png" width="70%"><br></center>
+        <br>
+        Come prima cosa è necessario selezionale la prima colonna e andare nella sezione "Dati" e cliccare su "Testo in colonne":<br>
+        <center><img src="img/csv2.png" width="70%"><br></center>
+        <br>
+        Una volta cliccato "Testo in colonne", si aprirà una schermata nella quale bisogna selezionare su delimitato e poi andare avanti:<br>
+        <center><img src="img/csv3.png" width="70%"><br></center>
+        <br>
+        Cliccare su tabulazione, virgola e controllare che il delimitatore di testo sia " e poi cliccare avanti:<br>
+        <center><img src="img/csv4.png" width="70%"><br></center>
+        <br>
+        Cliccare poi su fine:
+        <center><img src="img/csv5.png" width="70%"><br></center>
+        <br>
+        E i dati sono stati divisi in colonna:
+        <center><img src="img/csv6.png" width="70%"><br></center>
+        <br>
+
+        <h3>Di lettura non modificabili</h3>
+
+        Queste tipologie di formati non offrono la possibilità una volta salvati di essere modificati. Tra questi possiamo trovare <font color='orange'>.html, .htm, .pdf, .xps, .mht</font>.
+        <br>
+        <hr><hr>
+        <h2>Quali strumenti di importazione automatica offre Excel e come si utilizzano?</h2>
+        <center><img src="img/importazione.png" width="50%"><br></center><br>
+        <p>Excel offre molti strumetni automatici per importare automaticamente i dati, i principali e quelli di applicazione più comuni sono 3:</p><br>
+        <h2>Formati testo/CSV</h2>
+        Questo strumento è semplice, per stestarlo si possono utililizzare questi file:<br>
+        <br>
+        <a href="http://giacomosaccaggi.github.io/Dati_FILM.csv">Download file1 formato .csv</a><br>
+        <a href="http://giacomosaccaggi.github.io/Dati_FILM.txt">Download file2 formato .txt</a><br>
+        <a href="http://giacomosaccaggi.github.io/Dati_FILM.prn">Download file3 formato .prn</a><br>
+        <br>
+        Con questo strumento basta andare in nella barra menu in "Dati", poi andare su "Recupera dati", "da file" e infine cliccare "DA testo/CSV" e seguire la procedura di importazione.
+<br>
+        Quindi in breve: DATI > RECUPERA DATI > DA FILE > DA testo/CSV<br>
+        Poi bisogna selezionare il file e i dati vengono caricati correttamente, questo metodo funziona con tutti i formati basati su file di testo (<font color='orange'>.csv</font>, il <font color='orange'>.txt</font> e il <font color='orange'>.prn</font>).<br><br>
+        <center><img src="img/caricautocsv.png" width="70%"><br></center><br>
+        <br>
+        <h2>Formati XML</h2>
+        Questo strumento è semplice, per stestarli si può utililizzare questo file:<br>
+        <br>
+        <a href="http://giacomosaccaggi.github.io/prova.xml">Download file formato .xml</a>: <br><br>
+        <pre bgcolor="#E6E6FA">
+            <RECORDS>
+            <EMPLOYEE>
+                <ID>1</ID>
+                <NAME>Rick</NAME>
+                <SALARY>623.3</SALARY>
+                <STARTDATE>1/1/2012</STARTDATE>
+                <DEPT>IT</DEPT>
+            </EMPLOYEE>
+                
+            <EMPLOYEE>
+                <ID>2</ID>
+                <NAME>Dan</NAME>
+                <SALARY>515.2</SALARY>
+                <STARTDATE>9/23/2013</STARTDATE>
+                <DEPT>Operations</DEPT>
+            </EMPLOYEE>
+            
+            <EMPLOYEE>
+                <ID>3</ID>
+                <NAME>Michelle</NAME>
+                <SALARY>611</SALARY>
+                <STARTDATE>11/15/2014</STARTDATE>
+                <DEPT>IT</DEPT>
+            </EMPLOYEE>
+            
+            <EMPLOYEE>
+                <ID>4</ID>
+                <NAME>Ryan</NAME>
+                <SALARY>729</SALARY>
+                <STARTDATE>5/11/2014</STARTDATE>
+                <DEPT>HR</DEPT>
+            </EMPLOYEE>
+            
+            <EMPLOYEE>
+                <ID>5</ID>
+                <NAME>Gary</NAME>
+                <SALARY>843.25</SALARY>
+                <STARTDATE>3/27/2015</STARTDATE>
+                <DEPT>Finance</DEPT>
+            </EMPLOYEE>
+            
+            <EMPLOYEE>
+                <ID>6</ID>
+                <NAME>Nina</NAME>
+                <SALARY>578</SALARY>
+                <STARTDATE>5/21/2013</STARTDATE>
+                <DEPT>IT</DEPT>
+            </EMPLOYEE>
+            
+            <EMPLOYEE>
+                <ID>7</ID>
+                <NAME>Simon</NAME>
+                <SALARY>632.8</SALARY>
+                <STARTDATE>7/30/2013</STARTDATE>
+                <DEPT>Operations</DEPT>
+            </EMPLOYEE>
+            
+            <EMPLOYEE>
+                <ID>8</ID>
+                <NAME>Guru</NAME>
+                <SALARY>722.5</SALARY>
+                <STARTDATE>6/17/2014</STARTDATE>
+                <DEPT>Finance</DEPT>
+            </EMPLOYEE>
+                
+            </RECORDS>
+        </pre>
+        <a href="https://support.office.com/it-it/article/Importare-dati-XML-6eca3906-d6c9-4f0d-b911-c736da817fa4#bmimport_an_xml_file_as_an_xml_list_wit">Per avere altre informazioni su come inportare un file XML visitare questo sito</a>
+
+
+
+        <br><br>
+        <h2>Dal web (webscraping)</h2>
+        In questa ultima sezione capiamo come importare dati che magari cambiano di settimana in settimana o di giorno in giorno e riuscire a renderlo piu automatico per cercare di perdere il meno tempo possibile.
+        <br>
+        In particolare ci baseremo su un esempio semplice: vogliamo scaricare i dati delle squadre di Serie A sfruttando gli strumenti di importazione automatica di Excel.<br>
+        Nell'esempio sottostante per scaricare i dati ci collegheremo al sito: <a href="http://www.legaseriea.it/it/serie-a/classifica">http://www.legaseriea.it/it/serie-a/classifica</a><br>
+        <br>Andiamo su "DATI - RECUPERA DATI - DA ALTRE ORIGINI - DA WEB"<br>
+        <center><img src="img/impweb1.png" width="70%"><br></center>
+        <br>
+        Inseriamo il link dal quale vogliamo copiare la tabella:<br>
+        <center><img src="img/impweb2.png" width="70%"><br></center>
+        <br>
+        Una volta che Excel ha analizzato la pagina web ti elenca tutte le tabelle che ci sono nella pagina web (Table 0, Table 1 ...) e occorre selezionare la tabella che ci interessa e poi cliccare su carica:<br>
+        <center><img src="img/impweb3.png" width="70%"><br></center>
+        <br>
+        I dati vengono caricati correttamente:<br>
+        <center><img src="img/impweb4.png" width="70%"><br></center>
+        <br>
+        <br>
+
+
+
+
+        <br><br><br>
+  </div>
+    </body>
+
+</html>
