@@ -113,8 +113,8 @@
             </ul>
             <li>Funzioni di ricerca e di riferimento</li>
             <ul>
-                <li>CERCA.VERT (vlukup)</li>
-                <li>CERCA.ORIZZ (hlukup)</li>
+                <li>CERCA.VERT (vlookup)</li>
+                <li>CERCA.ORIZZ (hlookup)</li>
                 <li>Indice (index)</li>
                 <li>Confronta (match)</li>
             </ul>
@@ -170,8 +170,19 @@
         <br>Esempio 2:<br><center><img src="img/se6.png" width="100%"><br></center>
         <br><hr><br>        
         <h2>Funzioni di ricerca e di riferimento</h2>
-        <h3>CERCA.VERT</h3>
+        <h3>CERCA.VERT (VLOOKUP - vertical look up [in English version])</h3>
         <center><img src="img/cercavert1.png" width="50%"><br></center>
+        <p>Per capire bene il funzionamento di questa funzione apriamo il file di esempio: <a herf="Prezzi_esempio.xlsx">File.xlsx</a>. In questo foglio abbiamo nel primo foglio di calcolo il listino di prezzi di una serie di prodotti e nel secondo foglio una serie di acquisti ipotetici fatti nel mese di settembre con le rispettive quantità di acquisto per ogni prodotto.
+        <br>Foglio 1:<br><center><img src="img/cercavert2.png" width="50%"><br></center>
+        <br>Foglio 2:<br><center><img src="img/cercavert3.png" width="50%"><br></center>
+        <br>Nel secondo foglio però manca il prezzo unitario, come facciamo a collegare ad ogni prodotto il prezzo unitario corrispondente? Con la funzione CERCA.VERT<br><br>
+        <br>Scriviamo nella casella del prezzo unitario, la funzione CERCA.VERT, segnando come valore la casella corrispondente alla categoria:<br><center><img src="img/cercavert4.png" width="50%"><br></center>
+        <br>Selezioniamo la matrice nel foglio1 "Listino prezzi" (è importante partire dalla colonna nella quale dobbiamo cercare la categoria che ci interessa), segnando i valori che definiscono le dimensioni della matrice selezionata con il carattere speciale "$":<br><center><img src="img/cercavert5.png" width="50%"><br></center>
+        <br>Scriviamo 2 perchè a noi interessa il valore del costo unitario che corrisponde alla colonna 2 della matrice selzionata:<br><center><img src="img/cercavert6.png" width="50%"><br></center>
+        <br>In questa ultima sezione dobbiamo scrivere se vogliamo una corrispondenza precisa (scrivendo FALSO o 0) oppure una corrispondenza approssimata (scrivendo VERO o 1) [consiglio: sui numeri spesso s usa una corrispondenza approssimata per ad esempio dividere in categorie sulle stringhe raramente usiamo quella approssimata perche se il nostro obbiettivo è fare Record linkage ci sono strumenti molto più precisi]:<br><center><img src="img/cercavert7.png" width="50%"><br></center>
+        <br>Risultato:<br><center><img src="img/cercavert8.png" width="50%"><br></center>
+        <br><h3>CERCA.ORIZZ (HLOOKUP - horizontal look up [in English version])</h3>
+        <br>Il funzionamento del CERCA.ORIZZ è uguale indentico al CERCA.VERT ma al posto di ragionare sulle colonne ragiona sulle righe:<br><center><img src="img/cercaorizz.png" width="50%"><br></center>
         <br><br><br>
   </div>
 
