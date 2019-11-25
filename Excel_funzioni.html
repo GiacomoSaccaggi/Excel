@@ -103,7 +103,7 @@
 
         <center><img src="img/funz2.png" width="50%"><br></center>
 
-            <p>In questa sezione si andranno ad elencare e spiegare con esempi pratici le principali funzioni di Excel. Ci sono molte altre funzioni utili, per altre informazioni cliccare sul sequente <a href="https://support.office.com/it-it/article/Funzioni-di-Excel-in-base-alla-categoria-5f91f4e9-7b42-46d2-9bd1-63f26a86c0eb">LINK</a>
+            <p>In questa sezione si andranno ad elencare e spiegare con esempi pratici le principali funzioni di Excel (escludendo quelle basi viste nel capitolo 1 di questo corso). Ci sono molte altre funzioni utili, per altre informazioni cliccare sul sequente <a href="https://support.office.com/it-it/article/Funzioni-di-Excel-in-base-alla-categoria-5f91f4e9-7b42-46d2-9bd1-63f26a86c0eb">LINK</a>
         <br>
         <ul>
             <li>Funzioni Logiche: il SE e le sue applicazioni</li>
@@ -118,13 +118,7 @@
                 <li>Indice (index)</li>
                 <li>Confronta (match)</li>
             </ul>
-            <li>Altre funzioni interessanti</li>
-            <ul>
-                <li>Giorni & Data.diff</li>
-                <li>Concat/Concatena</li>
-            </ul>
             <li>Formattazione condizionale</li>
-            <li>Testo in colonne</li>
         </ul>
 
         <hr><hr>
@@ -172,7 +166,7 @@
         <h2>Funzioni di ricerca e di riferimento</h2>
         <h3>CERCA.VERT (VLOOKUP - vertical look up [in English version])</h3>
         <center><img src="img/cercavert1.png" width="50%"><br></center>
-        <p>Per capire bene il funzionamento di questa funzione apriamo il file di esempio: <a herf="Prezzi_esempio.xlsx">File.xlsx</a>. In questo foglio abbiamo nel primo foglio di calcolo il listino di prezzi di una serie di prodotti e nel secondo foglio una serie di acquisti ipotetici fatti nel mese di settembre con le rispettive quantità di acquisto per ogni prodotto.
+        <p>Per capire bene il funzionamento di questa funzione apriamo il file di esempio: <a herf="Prezzi_esempio.xlsx">File.xlsx</a>. In questo foglio abbiamo nel primo foglio di calcolo il listino di prezzi di una serie di prodotti e nel secondo foglio una serie di acquisti ipotetici fatti nel mese di settembre con le rispettive quantità di acquisto per ogni prodotto.</p>
         <br>Foglio 1:<br><center><img src="img/cercavert2.png" width="50%"><br></center>
         <br>Foglio 2:<br><center><img src="img/cercavert3.png" width="50%"><br></center>
         <br>Nel secondo foglio però manca il prezzo unitario, come facciamo a collegare ad ogni prodotto il prezzo unitario corrispondente? Con la funzione CERCA.VERT<br><br>
@@ -183,6 +177,70 @@
         <br>Risultato:<br><center><img src="img/cercavert8.png" width="50%"><br></center>
         <br><h3>CERCA.ORIZZ (HLOOKUP - horizontal look up [in English version])</h3>
         <br>Il funzionamento del CERCA.ORIZZ è uguale indentico al CERCA.VERT ma al posto di ragionare sulle colonne ragiona sulle righe:<br><center><img src="img/cercaorizz.png" width="50%"><br></center>
+        <br><br>
+        <h3>Indice (index) e Confronta (match)</h3>
+        <p>Inizialmente sia la funzione INDICE che la Funzione Confronta risulteranno complicate e in molte situazioni inutili prese singolarmente ma scopriremo, nel capitolo successivo, che combinandole insieme si riesce a creare un simil CERCA.VERT molto più efficiente da utilizzare.</p>
+        <br><b>INDICE:</b>
+        <p>Cosa fa e a cosa serve:<br>
+        <ul>
+        La funzione di Excel INDICE restituisce un valore da una matrice in base ai numeri di riga e di colonna specificati.
+        </ul>
+        </p>
+        <br><center><img src="img/indice1.png" width="35%"><br></center>
+        <p>Spiegazione dei parametri:<br>
+        <ul>
+        <li>matrice: questo è un intervallo di celle da cui si desidera restituire un valore</li>
+        <li>riga: il numero di riga in matrice da cui si desidera restituire un valore. Se omesso, è necessario indicare il parametro col</li>
+        <li>col: il numero di colonna in matrice da cui si desidera restituire un valore. Se omesso, è necessario indicare il parametro riga</li>
+        </ul>
+        </p>
+        <br><b>CONFRONTA:</b>
+        <p>Cosa fa e a cosa serve:<br>
+        <ul>
+        La funzione CONFRONTA di Excel individua un valore di ricerca in un intervallo di celle, e restituisce la posizione relativa di detto valore nell’intervallo.
+        </ul>
+        </p>
+        <br><center><img src="img/confronta1.png" width="35%"><br></center>
+        <p>Spiegazione dei parametri:<br>
+        <ul>   
+        <li>valore: questo è il numero o il testo che si sta cercando. Può essere un valore, un riferimento di cella o un valore logico</li>
+        <li>matrice: l’intervallo di celle da ricercare</li>
+        <li>corrisp: questo parametro indica alla funzione CONFRONTA se si desidera restituire una corrispondenza esatta o la corrispondenza più vicina:</li>
+        <ul>
+        <li>1 o omesso: trova il valore più grande che è minore o uguale al valore di ricerca. I valori nella matrice di ricerca devono essere ordinati in ordine crescente, cioè dal più piccolo al più grande</li>
+        <li>0: trova il primo valore che è esattamente uguale al valore di ricerca.</li>
+        <li>-1: Trova il valore più piccolo che è maggiore o uguale a valore. I valori nella matrice di ricerca devono essere ordinati in ordine decrescente, cioè dal più grande al più piccolo</li>
+        </ul>
+        </ul>
+        </p>
+        <br><br>
+        <h3>Indice e Confronta meglio di CERCA.VERT</h3>
+        <p>La funzione CONFRONTA determina la posizione relativa del valore di ricerca nell’intervallo di celle e la funzione INDICE prende quel numero, o numeri, e restituisce il valore della cella corrispondente.</p>
+        <center><h5>=INDICE(<font color="red">Colonna in cui dobbiamo cercare il valore</font>; CONFRONTA(<font color="red">Valore da cercare</font>; <font color="red">Colonna del valore corrispondente da restituire</font>; 0) </h5></center>
+        <p>Quindi possiamo creare il nostro CERCA.VERT combinando le due funzioni come vedremo nell'esempio sottostante.</p>
+        <p>Per capire bene il funzionamento di questa funzione utiliziamo il file dell'esempio precedente: <a herf="Prezzi_esempio.xlsx">File.xlsx</a>. In questo foglio abbiamo nel primo foglio di calcolo il listino di prezzi di una serie di prodotti e nel secondo foglio una serie di acquisti ipotetici fatti nel mese di settembre con le rispettive quantità di acquisto per ogni prodotto.</p>
+        <p>Nel secondo foglio dove dobbiamo segnare il costo unitario di ogni prodotto in posizione D2 scriviamo la funzione:</p>
+        <h5>=INDICE('Listino prezzi'!$C$3:$C$8;CONFRONTA(Acquisti!C2;'Listino prezzi'!$B$3:$B$8;0))</h5>
+        <br><center><img src="img/indconf1.png" width="70%"><br></center>
+        <br><center><img src="img/indconf2.png" width="70%"><br></center>
+        <br><b>Perchè è meglio di CERCA.VERT?</b><br>
+        <p>Oltre ad avere un limite massimo di ricerca più ampio io personalmente preferisco questa combinazione rispetto al cerca verticale in quanto è molto più immediata perchè devo inserire tre valori semplici e soprattutto non ho la forte limitazione del cercare da sinistra a destra</p>
+        <br><hr><br>        
+        <h2>Formattazione condizionale</h2>
+        <p>La formattazione condizionale fornisce indicazioni visive che consentono di interpretare rapidamente i dati. Ad esempio, evidenzia chiaramente valori alti e bassi o altre tendenze dei dati sulla base dei criteri specificati.</p>
+        <p>Per utilizzare questa funzione bisogna andare su: <code>Home > Formattazione condizionale</code></p>
+        <br><center><img src="img/formattazionecondizionale1.png" width="100%"><br></center>
+        <p>Quindi questa funzione di Excel serve per evidenziare le informazioni. È possibile usare diverse regole predefinite per gli scenari più comuni, ad esempio per evidenziare i primi 10 valori, o usare formule per eseguire operazioni più complesse rispetto alle regole predefinite.</p>
+        <br><center><img src="img/formattazionecondizionale2.png" width="30%"><br></center>
+        <p>Per utilizzare la formattazione condizionale basta selezionare le celle sulle quali voglio applicare la regola e poi selezionarne una dal menu. Le regole presenti su Excel sono:</p>
+        <br><b>Regole di evidenziazione celle</b><center><img src="img/formattazionecondizionale3.png" width="30%"><br></center>
+        <br><b>Regole primi e utimi valori</b><center><img src="img/formattazionecondizionale4.png" width="30%"><br></center>
+        <br><b>Regole barre di dati (grado di avanzamento su massimo)</b><center><img src="img/formattazionecondizionale5.png" width="30%"><br></center>
+        <br><b>Scale di colori in base all'ordinamento</b><center><img src="img/formattazionecondizionale6.png" width="30%"><br></center>
+        <br><b>Set di icone </b><center><img src="img/formattazionecondizionale7.png" width="30%"><br></center>
+        <p>Per gestire le regole presenti in un intervallo di celle basta selezionare queste e poi cliccare su gestisci regole:</p>
+        <br><center><img src="img/formattazionecondizionale2.png" width="20%"><br></center>
+        <br><center><img src="img/formattazionecondizionale8.png" width="80%"><br></center>
         <br><br><br>
   </div>
 
