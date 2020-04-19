@@ -41,13 +41,12 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-
 </head>
 
 <body>
 
     
-<!-- Navigation -->
+ <!-- Navigation -->
     <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -75,6 +74,8 @@
         </div>
         <!-- /.container -->
     </nav>
+
+
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
     <header class="intro-header" style="background-image: url('sfondo.png')">
@@ -82,7 +83,7 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="site-heading">
-                        <h2>Excel - Pivot</h2>
+                        <h2>Excel - Risolutore</h2>
                         <hr class="small">
                         <h5>Uno strumento semplice e per chiunque</h5>
                     </div>
@@ -92,57 +93,92 @@
     </header>
 
     <div class="container">
-            
-<h2>Cosa è una Pivot?</h2>
-        <p>Nella sua forma più semplice, una tabella pivot prende i dati e li riepiloga in modo da poterli interpretare, senza dover digitare formule. Questo significa che dato un dataset con una tabella pivot con questo strumento si è in grado di calocare statistiche di base (o anche fare grafici) sull'intero set di dati.</p>
-        <p>Come poi si vadrà nell'esempio la parte più difficile di questo strumento è porsi le giuste domande da testare sui dati, ma innanzitutto vediamo come si costruiscono:</p>
+       <h1> Richiamare il Risolutore</h1>
+        Inizialmente il comando non è disponibile nella barra multifunzione. Per attivarlo, procedete nel seguente modo.
+        <ol><li>
+        Selezionate File > Opzioni.
+        <br>
+        <center><img src="img/risolutore1.png" width="70%"><br></center>
+        <br>
+        </li><li>
+        Nella finestra di dialogo Opzioni di Excel, fate clic su Componenti aggiuntivi.
         
-
-
-        <hr><hr>
-        <p>Ipotiziamo di dover analizzare il seti di dati contenuto in <a href="http://giacomosaccaggi.github.io/Prezzi_esempio2.csv">questo file (cliccare sul link per scaricarlo).</a> 
-        <br>Una volta scaricato e aperto il file dovrebbe comparire cosi:<br>
-        <center><img src="img/pivot1.png" width="70%"><br></center>
+        </li><li>
+        Nella parte inferiore della finestra, selezionate dall’elenco a discesa Gestisci l’opzione Componenti aggiuntivi di Excel, quindi fate clic su Vai. Si aprirà la finestra di dialogo Componenti aggiuntivi.
         <br>
-        Come prima cosa è necessario selezionare l'intera matrice di dati (o manualmente o con la combinazione di tasti CTRL+A) e cliccare su INSERISCI > TABELLA PIVOT:<br>
-        <center><img src="img/pivot2.png" width="70%"><br></center>
+        <center><img src="img/risolutore2.png" width="50%"><br></center>
         <br>
-        Uscirà una finestra con specificata la posizione della tabella che vogliamo convertire in pivot. Nella stessa finestra sarà possibile scegliere se collocare la "pivot" in un nuovo foglio di calcolo o in una posizione specifica a nostra scelta (è quasi sempre cosigliabile crearla in un nuovo foglio di calcolo per evitare problemi grafici di visualizzazione del foglio).
-        <center><img src="img/pivot3.png" width="30%"><br></center>
+        </li><li>
+        Nella finestra di dialogo Componenti aggiuntivi, selezionate l’opzione Componente aggiuntivo Risolutore e fate clic su OK.
         <br>
-        Una volta selezionate le varie opzioni e cliccato su OK, ci troveremo davanti a questa schermata:
-        <center><img src="img/pivot4.png" width="70%"><br></center>
-        <br>   
-        Nella parte di destra si puo notare una sezione dove sono inserite i titoli delle colonne della nostra tabella di partenza (le variabili) e nella parte sottostante 4 quadrati nei quali vanno trascinate le variabili visualizzare una tabella pivot.
-        <center><img src="img/pivot5.png" width="30%"><br></center>
-        <br>    
-        Per comprendere l'utilità di questo strumento di excel occorre prima porsi una domanda, ad esempio: <b>"Quali e quanti oggetti vengono comprati dalle 8:00 alle 20:00?"</b>. Per rispondere a questa domanda trasciniamo la variabile "categoria" all'interno del quadrato "Righe" per indicare che la variabile di nostro interesse deve essere relativa alla natura dell'oggetto.
-        <center><img src="img/pivot6.png" width="30%"><br></center>
-        <br> 
-        Come secondo step andiamo ad inserire in "valori" la variabile "totale" che rappresenta quanto viene speso per quella categoria di oggetto e la variabile "Quantità" la quale rappresenta il numero di oggetti acquistati.
-        <center><img src="img/pivot7.png" width="30%"><br></center>
-        <br> 
-        Una volta inserite tutte le variabili dobbiamo filtrare il risultato per l'orario della richiesta inserendo come variabile filtro "ora" ed andando poi a selezionare gli orari relativi alla richiesta.
-        <center><img src="img/pivot8.png" width="30%"><br></center>
-        <br> 
-        <center><img src="img/pivot9.png" width="30%"><br></center>
-        <br> 
-        In definitiva per rispondere alla domanda, una volta cliccato su OK, troviamo che:
-        <center><img src="img/pivot10.png" width="30%"><br></center>
-        <br> 
-        Se al posto di quanto abbiamo speso ci interessa sapere quanto abbiamo speso per ogni volta occurre cliccare sul triangolo difianco alla variabile inserita all'interno dei valori e poi cliccare sopra "Impostazioni campo valori".
-        <center><img src="img/pivot11.png" width="30%"><br></center>
+        <center><img src="img/risolutore3.png" width="20%"><br></center>
         <br>
-        Una volta cliccato su "Impostazioni campo valori" si aprira una finestra nella quale occorre selezionare al posto della somma la media.
-        <center><img src="img/pivot12.png" width="30%"><br></center>
+        </li></ol>
+        <br><br>
+        Per accedere al Risolutore selezionate <code>Dati > Analisi > Risolutore (Alt + A Y2)</code>. 
         <br>
-        Una volta cliccato su OK la tabella pivot si riaggiornerà nel seguente modo:
-        <center><img src="img/pivot13.png" width="30%"><br></center>
+        <center><img src="img/risolutore4.png" width="70%"><br></center>
         <br>
-
-
+        <h1>Utilizzo del simulatore</h1>
+        I problemi che spingono a impiegare il Risolutore riguardano situazioni complesse, che, in genere, rispondono ai seguenti criteri:
+        <ul><li>
+        Una cella risultato dipende da altre celle, attraverso apposite formule. Intendete massimizzare o minimizzare il valore nella cella risultato in modo che tenda a un determinato valore.
+        </li><li>
+        La cella di destinazione dipende da più celle variabili, sulle quali il Risolutore può intervenire per far convergere la cella di destinazione verso l’obiettivo desiderato.
+        </li><li>
+        La soluzione deve rispettare determinati vincoli o limiti.
+        </li></ul>
+        <br><br>
+        Per iniziare a capire il funzionamento del risolutore ipotiziamo il seguente problema:<br>
+        <b>X + Y = 10<br>
+        Y &lt; 6<br>
+        X &gt; 4<br>
+        X * Y &gt; 21</b>
+        <br><br>
+        Questo problema ha una soluzione evidente che corrisponde a (X=5;Y=5), ma è per comprendere il meccanismo. Per prima cosa occorre impostareil problema come nell'immagine sotto:
+        <br>
+        <center><img src="img/risolutore5.png" width="50%"><br></center>
+        <br>
+        Poi occorre inserire in un altra cella il terzo vincolo:
+        <br>
+        <center><img src="img/risolutore6.png" width="50%"><br></center>
+        <br>
+        Poi apriamo il risolutore andando su <code>Dati > Analisi > Risolutore (Alt + A Y2)</code> e impostiamo il problema come segue:
+        <br>
+        <center><img src="img/risolutore7.png" width="80%"><br></center>
+        <br>
+        Ottenendo infine come risultato:
+        <br>
+        <center><img src="img/risolutore8.png" width="70%"><br></center>
+        <br>
+        <br><br>
+        Per comprendere l'utilità del simulatore ipotiziamo come problema più complesso un sistema di tre equazioni lineari a tre incognite:<br><b>
+        4x + y - 2z = 0<br>
+        2x - 3y + 3z = 6<br>
+        -6x - 2y + z = -3<br></b>
+        <br>
+        Per impostare questo problema scriviamo nel foglio di calcolo in posizione A1 "x=", in posizione A2 "y=" e in posizione A3 "z=".<br>
+        Adesso occorre riscirvere le tre equazione in tre casselle consecutive in modo verticale con al posto della x la posizione B1, al posto della y la posizione B2 e al posto della z la posizione B3.
+        <br>Per intenderci, cosi:<br><b>
+        =(4*B1)+(B2)-(2*B3)<br>
+        =(2*B1)-(3*B2)+(3*B3)<br>
+        =-(6*B1)-(2*B2)+(B3)<br></b><br>
+        <center><img src="img/ris1.png" width="30%"><img src="img/ris2.png" width="30%"><img src="img/ris3.png" width="30%"><br></center><br>
+        Una volta scritte le tre equazioni nelle tre caselle consecutive vanno inseriti i risultati dell'equazione (quello che c'è dopo l'uguale):<br>
+        <center><img src="img/ris4.png" width="30%"><br></center>
+        <br>
+        Poi apriamo il risolutore andando su Dati > Analisi > Risolutore (Alt + A Y2) e impostiamo il problema come segue:
+        <br>
+        <center><img src="img/ris5.png" width="80%"><br></center>
+        <br>
+        Ottenendo infine come risultato:
+        <br>
+        <center><img src="img/ris6.png" width="70%"><br></center>
+        <br>
         <br><br><br>
   </div>
+
+
    <!-- Footer -->
     <footer>
        <div class="container">

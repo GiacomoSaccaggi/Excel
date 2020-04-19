@@ -77,7 +77,7 @@
     </nav>
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header" style="background-image: url('https://professor-excel.com/wp-content/uploads/2016/01/Wallpaper_Excel_8.png)">
+    <header class="intro-header" style="background-image: url('sfondo.png')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -92,19 +92,85 @@
     </header>
 
     <div class="container">
-     <p>L'ambito grafico è un contesto troppo ampio da poter sintetizzare in un solo articolo. In questo articolo si andra solo a spiegare come creare un grafico e modificarne la struttura e le impostazioni. Non  si andra a spiegare quali grafici è meglio utilizzare nei diversi contesti che si presentano.</p>
+     <p>L'ambito grafico è un contesto troppo ampio da poter sintetizzare in un solo articolo. In questo articolo si andrà solo a spiegare come creare un grafico e modificarne la struttura e le impostazioni. Non  si andra a spiegare quali grafici è meglio utilizzare nei diversi contesti che si presentano.</p>
 
 
         <hr><hr>
         Dato un dataset per inserire un grafico occorre selezionare la matrice di dati e andare su "INSERISCI >" e selezionare il tipo di grafico più adatto alla situazione.
         <br>
-        Possiamo distinguere 5 categorie di grafici disponibili in Excel:<br>
-        
-        <hr><hr>
-
+        Possiamo distinguere 8 categorie di grafici disponibili in Excel:<br>
+        <br>
+        1. Istogramma o grafico a barre 
+        <center><img src="img/graph1.png" width="70%"><br></center>
+        <br>
+        <br>
+        2. Grafico gerarchico 
+        <center><img src="img/graph2.png" width="70%"><br></center>
+        <br>
+        <br>
+        3.  Grafico a cascata, imbuto, azionario, superficie o radar
+        <center><img src="img/graph3.png" width="70%"><br></center>
+        <br>
+        <br>
+        4. Grafico a linee o ad area
+        <center><img src="img/graph4.png" width="70%"><br></center>
+        <br>
+        <br>
+        5.  Grafico statistico
+        <center><img src="img/graph5.png" width="70%"><br></center>
+        <br>
+        <br>
+        6.  Grafico combinato
+        <center><img src="img/graph3.png" width="70%"><br></center>
+        <br>
+        <br>
+        7. Grafico a torta o ad anello
+        <center><img src="img/graph4.png" width="70%"><br></center>
+        <br>
+        <br>
+        8.  Grafico a dispersione
+        <center><img src="img/graph5.png" width="70%"><br></center>
+        <br>
         Per chi fosse dotato di Office 365 in inglese, francese, spagnolo, tedesco, cinese semplificato e giapponese si consiglia anche lo strumento "ideas" il quale consiglia determinati grafici che possono sintetizzare le informazioni contenute in una tabella.
         <br><br><a href="https://support.office.com/it-it/article/idee-in-excel-3223aab8-f543-4fda-85ed-76bb0295ffc4?ui=it-IT&rs=it-IT&ad=IT">Link in Italiano</a><br>
         <a href="https://support.office.com/en-us/article/ideas-in-excel-3223aab8-f543-4fda-85ed-76bb0295ffc4">Link in Inglese</a>
+        <br><br>
+        Alternativamente si può utilizzare lo strumento grafici consigliati, grazie al quale, una volta selezionati i dati consente di creare grafici che sintetizzano in modo standard il set di dati distinguendo la natura delle variabili. Questo strumento, inferiore rispetto a "ideas" può essere utile in alcune situazione per creare grafici sintetici e standard.
+        <br>
+        <center><img src="img/graphcons.png" width="20%"><br></center>
+        <br>
+
+        <hr><hr>
+        <h1>Grafico Pivot</h1>
+        Un grafico pivot rappresenta i dati di riepilogo di una tabella pivot. Si può creare un grafico pivot solo a partire da una tabella pivot.<br>
+        Per creare un grafico pivot, fate clic su una cella della tabella pivot, quindi selezionate Strumenti tabella pivot > Analizza > Strumenti > Grafico pivot (Alt + JN G). Excel aprirà la finestra di dialogo Inserisci grafico, in cui potete selezionare un tipo di grafico. <br><br>
+        Vediamo un esempio:
+        <br>Ipotiziamo di dover analizzare il seti di dati contenuto in <a href="http://giacomosaccaggi.github.io/Prezzi_esempio2.csv">questo file (cliccare sul link per scaricarlo).</a>
+        <br>Creiamo una tabella pivot, come spiegato a questo <a href="Excel_pivot.html">link</a>, per capire quanto si è speso giorno per giorno, così formulata:
+        <br>
+        <center><img src="img/graphpivot1.png" width="20%"><br></center>
+        <br>
+        Creando poi un grafico pivot per linee, otteniamo che:
+        <br>
+        <center><img src="img/graphpivot2.png" width="70%"><br></center>
+        <br>
+        Se invece volessimo rappresentare graficamente quanto abbiamo speso per una categoria giorno per giorno per analizzarne il trend, allora dobbiamo formulare una tabella pivot come segue:
+        <br>
+        <center><img src="img/graphpivot3.png" width="20%"><br></center>
+        <br>
+        Creando poi un grafico pivot per linee, e filtrando per la categorie che ci interessa analizzare otteniamo che:
+        <br>
+        <h3>Singoli grafici per categoria</h3>
+        <center><img src="img/graphpivot4.png" width="49%"><img src="img/graphpivot5.png" width="49%"><br></center>
+        <center><img src="img/graphpivot6.png" width="49%"><img src="img/graphpivot7.png" width="49%"><br></center>
+        <center><img src="img/graphpivot8.png" width="49%"><img src="img/graphpivot9.png" width="49%"><br></center>
+        <br>
+        In questo esempio non è possibile in quanto ci sono giorni in cui non si è comprato una delle categorie, ma ad esempio nel caso di prezzi azionari registrati in piu giorni è possibile sovrapporre le linee di andamento e calcolarne il trend.
+        <br><br><br>
+        Per aggiungere il trend al grafico basta andare sulle impostazioni e aggiungere la linea di tendenza:
+        <br>
+        <center><img src="img/graphtrend.png" width="70%"><br></center>
+        <br>
         <br><br><br>
   </div>
    <!-- Footer -->
