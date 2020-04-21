@@ -63,6 +63,9 @@
                 <ul class="nav navbar-nav navbar-right">
                   
                     <li>
+                        <a href="https://giacomosaccaggi.github.io/Excel/">Excel articles</a>
+                    </li>
+                    <li>
                         <a href="https://giacomosaccaggi.github.io/all.html">All projects</a>
                     </li>
                     <li>
@@ -93,8 +96,75 @@
     </header>
 
     <div class="container">
+        <h1>Inserire la scheda di Sviluppo</h1>
+        <p>Per inserire la scheda Sviluppo in Excel, sulla barra multifunzione, ti basterà posizionarti sulla scheda File, della barra multifunzione e, nella barra laterale di sinistra, cliccare sul comando Opzioni. Nella finestra di dialogo che si apre vai sulla voce Personalizzazione barra multifunzione. Nel riquadro di sinistro, nel menu a tendina Scegli comandi da, scegli la voce Tutte le schede. Seleziona Sviluppo,in Schede principali, e assicurati che, nel riquadro di destra, nel menu a tendina di Personalizza barra multifunzione, sia presente la voce Schede principali.</p>
         
+        <h1>Utilità di una MACRO</h1>
+        <p>Ci si trova spesso a dover ripetere sempre le stesse operazioni prima di poter analizzare un set di dati o a dover utilizzare procedure per avere il formato delle variabili come ci è più comodo. Queste operazioni di solito sono lunghe, semplici ma se ci si dimentica di fare qualcosa poi ci sono degli errori e bisogna ripetere tutto. In questi casi ci viene in aiuto Excel creando la possibilità di fare delle macro, ossia registrare determinate azioni per poi poterle ripetere attraverso una combinazioni di tasti (ctrl +) o attraverso l'utilizzo di un pulsante.
+        </p>
+        <h1>Creare una MACRO</h1>
+        <ol>
+        <li>Dalla scheda "Sviluppo" clicca su pulsante "Registra macro"
+        <br><center><img src="img/macro1.png" width="70%"><br></center>
+        </li>
+        <li>Dalla finestra di dialogo "registra macro", nella casella "Nome macro" scrivere il nome con il quale si vuole chiamare la macro e, se si vuole, si può assegnare una combinazione di tasti (ctrl+...) per richiamare più velocemente la funzione.
+        <br><center><img src="img/macro2.png" width="40%"><br></center>
+        </li>
+        <li>Eseguire le azioni che vogliamo inserire nella macro<br>...<br>...<br>...<br>...<br></li>
+        <li>Clicca sul comando "Interrompi registrazione", per terminate la Macro.
+        <br><center><img src="img/macro3.png" width="70%"><br></center>
+        </li>
+        </ol>
+        <h1>Esempio MACRO</h1>
+        Personalmente io preferisco sempre programmare le macro con VBA come si vedrà nella prossima sezione ma un esempio di un problema con cui alcune volte mi sono dovuto cimentare consiste nel togliere da un foglio di calcolo i riferimenti. Questo problema di per se non è un problema difficile, anzi, basta selezionare tutto (Ctrl + A) e poi reincollare per valori, SEMPLICE!<br>
+        In realtà ci sono alcune insidie quando ci si trova a lavorare con tanti formati differenti tipo date (che nel copia e incolla per valori perdono il formato e poi devi riaggiustare il formato colonna per colonna) o con una combianzione di un grande dataset, che sarebbe meglio non gestire in Excel, e un computer non molto potente, in questi casi il computer può crashare e Excel bloccarsi oppure ti dice che la selezione da copiare è troppo grande.
+        <br>
+        Quindi la soluzione che in questo caso può essere utilizzata è copiare e incollare per valori solo le colonne che mi interessano e quando è oppurtuno, tipo per le date, predisporre gia il cambio di formato.<br>
+        <br><b>Manualmente dovrei fare:</b>
+        <ul><li>Seleziono la cella ad apice del mio foglio di calcolo</li>
+        <li>Selezionare l'intera colonna (Ctrl + maiusc + freccia in basso)</li>
+        <li>Copiarla (Ctrl + c)</li>
+        <li>Incollarla per valori (che non ha uno shortcut [anche se si può installare da internet o creare in vba come di vedrà nella sezione successiva])</li>
+        <li>Cambiargi formato</li></ul>
+        <br><br><b>5 comandi per un totale di circa 3/5 minuti li faremo diventare secondi!</b><br><br>
+        <ul><li>Iniziamo selezionando la cella ad apice della colonna da cui vogliamo togliere i collegamenti (attenzione da fare prima di aprire la registrazione della macro)</li>
+        <li>Procidiamo aprendo la registrazione di una macro, dantogli un nome e uno shrtcut che reputiamo comodo. (Una volta aperta la registrazione dobbiamo stare attenti a non fare errori perchè poi il computer li ripete)</li>
+        <li>Ci troviamo già nella cella ad apice, quindi clicchiamo <b>Ctrl + [Maiusc] + [freccia giù]</b> per selezionare l'intera colonna</li>
+        <li>La copiamo con <b>Ctrl + c</b></li>
+        <li>Poi clicchiamo su <code>Home >Incolla >Incolla speciale >Incolla Valori</code> per togliere i collegamenti</li>
+        <li>Cambiamo il formato della colonna in base alle esigenze</li>
+        <li>Ed infine clicca sul comando "Interrompi registrazione", per terminate la Macro.
+        </li></ul>
+        Una volte eseguite queste operazioni cosi come descritte avremo una macro collegata con lo shortcut che gli abbiamo dato.
+
+<br><br><h3>Codice VBA della macro:</h3>
+<br><br><br>
+
+        <code>
+
+Sub Macro1()<br>
+<br>'
+<br>' Macro1 Macro
+<br>' Macro di prova
+<br>'
+<br>' Scelta rapida da tastiera: CTRL+g
+<br>'<br>
+<br>    Range(Selection, Selection.End(xlDown)).Select
+<br>    Selection.Copy
+<br>    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+<br>        :=False, Transpose:=False
+<br>    Application.CutCopyMode = False
+<br>    Selection.NumberFormat = "m/d/yyyy"
+<br>End Sub
+
+        </code>
+        <br><br><h3>Per l'interpretazione del codice VBA della macro si lascia al capitolo successivo.</h3>
         <br><br><br>
+        <H2>Salvare file Excel con macro</H2>
+<p>Per salvare un file excel con l'utilizzo delle macro è necessario salvarlo con nome nel formato <b>Cartella di lavoro con attivazione di macro</b> ossia <code>.xlsm</code>:<br>
+      <br><center><img src="img/macro4.png" width="40%"><br></center>
+        <br><br><br>
+
   </div>
 
 
