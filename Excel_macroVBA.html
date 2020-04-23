@@ -138,7 +138,78 @@ End Sub
 </pre>
         </p>Come si può notare dal codice sopra, ogni movimento fatto corrisponde a delle procedure specifiche; infatti con <code>Range(Selection, Selection.End(xlDown)).Select</code> selezioniamo tutta la colonna; con <code>Selection.Copy</code> copiamo la selezione; con <code>Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _:=False, Transpose:=False</code> incolliamo per valori; con <code>Application.CutCopyMode = False</code> rimuoviamo l'elemento copiato; ed infine con <code>Selection.NumberFormat = "m/d/yyyy"</code> gli cambiamo il formato in formato data.
         
-        </p>
+        </p><br><br>
+        <h1>Programmare in VBA</h1>
+        <p><b>Da qui in poi si fa sul serio!!!</b> Premetto che non affronteremo a fondo tutti i comandi presenti in VBA perchè credo che, una volta compresi i meccanismi e la logica che sta alla base del linguaggio, il più fa la pratica e affrontare problemi differenti.</p>
+        <p>Iniziamo elencando le variabili utilizzabili in questo linguaggio:</p>
+        <style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+  <tr>
+    <th class="tg-0lax">Tipologia di dati</th>
+    <th class="tg-0lax">Dimensione</th>
+    <th class="tg-0lax">Intervallo memorizzazione</th>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Byte</td>
+    <td class="tg-0lax">1 byte</td>
+    <td class="tg-0lax">Da 0 a 255</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Boolean</td>
+    <td class="tg-0lax">2 byte</td>
+    <td class="tg-0lax">True o False</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Integer</td>
+    <td class="tg-0lax">2 byte</td>
+    <td class="tg-0lax">Da -32.768 a 32.767</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Long (intero lungo)</td>
+    <td class="tg-0lax">4 byte</td>
+    <td class="tg-0lax">Da -2.147.483.648 a 2.147.483.647</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Single (virgola mobile semplice)</td>
+    <td class="tg-0lax">4 byte</td>
+    <td class="tg-0lax">Da -3.402823E38 a -1.401298E45 e da 1.401298E45 a 3.402823E38</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Double (virgola mobile a doppia precisione)</td>
+    <td class="tg-0lax">8 byte</td>
+    <td class="tg-0lax">-4.94065645841247E-324 per i valori negativi e 4.94065645841247E-324 per i valori positivi</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Currency</td>
+    <td class="tg-0lax">8 byte</td>
+    <td class="tg-0lax">Da -922.337.203.685.477,5808 a 922.337.203.685.477,5808</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Date</td>
+    <td class="tg-0lax">8 byte</td>
+    <td class="tg-0lax">Dal 1 Gennaio 100 al 31 Dicembre 9999</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Object</td>
+    <td class="tg-0lax">4 byte</td>
+    <td class="tg-0lax">Qualsiasi riferimento a oggetto</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">String (Testo)</td>
+    <td class="tg-0lax">10 byte + lunghezza stringa</td>
+    <td class="tg-0lax">Da 0 a, circa, 2 miliardi</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Variant</td>
+    <td class="tg-0lax">22 byte + lunghezza stringa</td>
+    <td class="tg-0lax">Da 0 a circa 2 miliardi</td>
+  </tr>
+</table>
         <br><br><br>
   </div>
    <!-- Footer -->
