@@ -99,7 +99,44 @@
         <h2>Cos'è VBA?</h2>
         <p>Visual Basic for Applications (VBA) è un'implementazione di Visual Basic inserita all'interno di applicazioni Microsoft quali la suite Microsoft Office o Visio, altri programmi contengono un'implementazione parziale di VBA (ad esempio AutoCAD e WordPerfect). 
         <br>Nonostante il suo stretto legame con Visual Basic, VBA non può essere usato per eseguire applicazioni stand-alone, ma è comunque possibile una certa interoperatività fra applicazioni (ad esempio è possibile creare un report in Word a partire da dati di Excel) grazie all'automazione (tecnologia COM, Component Object Model).<br>[Fonte: wikipedia]
+        <h2>Modificare una macro con VBA</h2>
+        <p>Per introdurre VBA guardiamo la macro fatta nella sezione precedente per togliere i riferimenti da una colonna e cambiargli formato:<br>
+        <ul><li>Procediamo aprendo la registrazione di una macro, dantogli un nome e uno shrtcut che reputiamo comodo.</li>
+        <li>Ci troviamo già nella cella ad apice, quindi clicchiamo <b>Ctrl + [Maiusc] + [freccia giù]</b> per selezionare l'intera colonna</li>
+        <li>La copiamo con <b>Ctrl + c</b></li>
+        <li>Poi clicchiamo su <code>Home >Incolla >Incolla speciale >Incolla Valori</code> per togliere i collegamenti</li>
+        <li>Cambiamo il formato della colonna in base alle esigenze</li>
+        <li>Ed infine clicca sul comando "Interrompi registrazione", per terminate la Macro.
+        </li></ul>
+        Una volte eseguite queste operazioni cosi come descritte avremo una macro collegata con lo shortcut che gli abbiamo dato.
+
+        <br><br>Per modificare la macro con VBA andiamo su <code>Sviluppo > Visualizza macro</code><br>
+        <br><center><img src="img/macrovba1.png" width="70%"><br></center>
+
+        <br><br>Selezioniamo la macro che vogliamo modificare e clicchiamo su modifica<br>
+        <br><center><img src="img/macrovba2.png" width="40%"><br></center>
         
+        <br><br>Una volta cliccato su modifica si aprirà visual basic con inserito nel modulo1 la macro da noi creata.<br>
+        <br><center><img src="img/macrovba3.png" width="70%"><br></center>
+<br><br><h3>Codice VBA della macro:</h3>
+<br><br><br>
+<pre>
+Sub Macro1()
+'
+' Macro1 Macro
+' Macro di prova
+'
+' Scelta rapida da tastiera: CTRL+g
+'
+    Range(Selection, Selection.End(xlDown)).Select
+    Selection.Copy
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=False
+    Application.CutCopyMode = False
+    Selection.NumberFormat = "m/d/yyyy"
+End Sub
+</pre>
+        </p>Come si può notare dal codice sopra, ogni movimento fatto corrisponde a delle procedure specifiche; infatti con <code>Range(Selection, Selection.End(xlDown)).Select</code> selezioniamo tutta la colonna; con <code>Selection.Copy</code> copiamo la selezione; con <code>Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _:=False, Transpose:=False</code> incolliamo per valori; con <code>Application.CutCopyMode = False</code> rimuoviamo l'elemento copiato; ed infine con <code>Selection.NumberFormat = "m/d/yyyy"</code> gli cambiamo il formato in formato data.
         
         </p>
         <br><br><br>

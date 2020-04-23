@@ -115,7 +115,17 @@
         <br><center><img src="img/macro3.png" width="70%"><br></center>
         </li>
         </ol>
-        <h1>Esempio MACRO</h1>
+        <h1>Esempi MACRO</h1>
+        <h4>Esempio 1:</h4>
+        Il comando incolla per valori non ha uno shortcut preimpostato in excel ma capita spesso di doverlo utilizzare. Per creare uno shortcut si può utilizzare la funzione registra macro:
+        <ul><li>Iniziamo copiando una cella a caso del documento e aprendo la registrazione di una macro, dantogli un nome e uno shrtcut che reputiamo comodo. (Per comodità si consiglia Ctrl + [maiusc] + V)</li>
+        <li>Poi clicchiamo su <code>Home >Incolla >Incolla speciale >Incolla Valori</code></li>
+        <li>Ed infine clicca sul comando "Interrompi registrazione", per terminate la Macro.
+        </li></ul>
+        Questa procedura molto semplice ci permette di aver assegnato allo shortcut scelto il comando incolla per valori.<br><br>
+        
+
+        <h4>Esempio 2:</h4>
         Personalmente io preferisco sempre programmare le macro con VBA come si vedrà nella prossima sezione ma un esempio di un problema con cui alcune volte mi sono dovuto cimentare consiste nel togliere da un foglio di calcolo i riferimenti. Questo problema di per se non è un problema difficile, anzi, basta selezionare tutto (Ctrl + A) e poi reincollare per valori, SEMPLICE!<br>
         In realtà ci sono alcune insidie quando ci si trova a lavorare con tanti formati differenti tipo date (che nel copia e incolla per valori perdono il formato e poi devi riaggiustare il formato colonna per colonna) o con una combianzione di un grande dataset, che sarebbe meglio non gestire in Excel, e un computer non molto potente, in questi casi il computer può crashare e Excel bloccarsi oppure ti dice che la selezione da copiare è troppo grande.
         <br>
@@ -124,11 +134,11 @@
         <ul><li>Seleziono la cella ad apice del mio foglio di calcolo</li>
         <li>Selezionare l'intera colonna (Ctrl + maiusc + freccia in basso)</li>
         <li>Copiarla (Ctrl + c)</li>
-        <li>Incollarla per valori (che non ha uno shortcut [anche se si può installare da internet o creare in vba come di vedrà nella sezione successiva])</li>
+        <li>Incollarla per valori (che non ha uno shortcut [anche se si può installare da internet o creare come fatto in precedenza])</li>
         <li>Cambiargi formato</li></ul>
         <br><br><b>5 comandi per un totale di circa 3/5 minuti li faremo diventare secondi!</b><br><br>
         <ul><li>Iniziamo selezionando la cella ad apice della colonna da cui vogliamo togliere i collegamenti (attenzione da fare prima di aprire la registrazione della macro)</li>
-        <li>Procidiamo aprendo la registrazione di una macro, dantogli un nome e uno shrtcut che reputiamo comodo. (Una volta aperta la registrazione dobbiamo stare attenti a non fare errori perchè poi il computer li ripete)</li>
+        <li>Procediamo aprendo la registrazione di una macro, dantogli un nome e uno shrtcut che reputiamo comodo. (Una volta aperta la registrazione dobbiamo stare attenti a non fare errori perchè poi il computer li ripete)</li>
         <li>Ci troviamo già nella cella ad apice, quindi clicchiamo <b>Ctrl + [Maiusc] + [freccia giù]</b> per selezionare l'intera colonna</li>
         <li>La copiamo con <b>Ctrl + c</b></li>
         <li>Poi clicchiamo su <code>Home >Incolla >Incolla speciale >Incolla Valori</code> per togliere i collegamenti</li>
@@ -162,7 +172,18 @@ Sub Macro1()<br>
         <br><br><br>
         <H2>Salvare file Excel con macro</H2>
 <p>Per salvare un file excel con l'utilizzo delle macro è necessario salvarlo con nome nel formato <b>Cartella di lavoro con attivazione di macro</b> ossia <code>.xlsm</code>:<br>
-      <br><center><img src="img/macro4.png" width="40%"><br></center>
+      <br><center><img src="img/macro4.png" width="80%"><br></center>
+        <br><br><br>
+        Le macro create e salvate come sopra vengono salvate all'interno del documento ma non sono valide al di fuori. Quindi una volta salvata la macro, chiuso il documento e aperto un altro, non è più valida. <b>Come facciamo allora ad estendere l'utilizo di una macro al di fuori del documento?</b><br><br>
+        La procedura più semplice anche se un po' macchinosa consiste nel creare un componente aggiuntivo.<br><br>
+        Per prima cosa andiamo a creare le macro in un documento nuovo e vuoto (o a copiare il codice in VBA all'interno di un nuovo modulo di un nuovo documento). Una volta create le macro che ci interessa estendere a tutti i documenti salviamo il file come <code>.xlam</code> ossia come componente aggiuntivo in una posizione dalla quale non lo sposteremo.<br>
+<br><center><img src="img/macro5.png" width="80%"><br></center>
+        Concluso il salvataggio dobbiamo andare a caricarlo in Excel andando su <code>Sviluppo > Componenti aggiuntivi di Excel</code>
+        <br><center><img src="img/macro6.png" width="80%"><br></center>
+        poi clicchiamo su sfoglia e andiamo a selezionare il file che abbiamo salvataggio
+        <br><center><img src="img/macro7.png" width="40%"><br></center>
+        ed infine gli mettiamo la spunta per caricarlo all'interno di tutti i documenti.
+        <br><center><img src="img/macro8.png" width="40%"><br></center>
         <br><br><br>
 
   </div>
