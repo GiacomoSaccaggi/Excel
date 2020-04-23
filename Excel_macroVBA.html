@@ -210,6 +210,65 @@ End Sub
     <td class="tg-0lax">Da 0 a circa 2 miliardi</td>
   </tr>
 </table>
+
+<p>Prima di poter vedere come dichiarare una variabile occorre definire il concetto di routine. In Visual Basic esistono due tipi di routine:<ul><li>
+Routine Sub: svolgono operazioni ma non restituiscono un valore.</li><li>
+Routine Function: svolgono operazioni e restituiscono un valore.</li></ul></p>
+La visibilità di una variabile, o di una routine, definisce la sua disponibilità all'interno del progetto. Si possono dichiarare variabili e funzioni a tre livelli:<ul><li>
+<b>Livello locale: (Dim)</b> vanno dichiarate all'interno della routine e sono disponibili solo all'interno di essa.</li><li>
+<b>Livello di modulo: (Private)</b> Vanno dichiarate in testa alla finestra di modulo di codice e sono viste da tutte le routine contenute all'interno del modulo di codice.</li><li>
+<b>Livello pubblico: (Public)</b> Vanno dichiarate in testa alla finestra di modulo di codice e sono viste da tutte le routine e da tutti i moduli di codice appartenenti al progetto.</li></ul>
+<p>Prima di poter osservare nel concreto la differenta tra queste due routine dobbiamo aprire un nuovo foglio di Excel e andare su <code>Sviluppo > Visual Basic</code> oppure cliccare ALT + F11. Una volta aperto Visual basic ci troveremo in questa situazione:</p>
+<br><center><img src="img/macrovba4pre.png" width="70%"><br></center>
+<p>Occorre creare un nuovo modulo andando, all'interno di Visual Basic, su <code>Inserisci > Modulo</code>
+<br><center><img src="img/macrovba4.png" width="70%"><br></center>
+
+Apriamo il modulo, cliccandoci sopra due volte, e nell'editor di Visual Basic creiamo la nostra prima routine scrivendo il seguente codice:
+
+<br>
+<br>
+<pre>
+' La seguente variabile è visibile nell'intero progetto
+Public risultato As String
+
+' La seguente variabile è visibile a livello di modulo
+Private testo As String
+
+Sub inviamessaggio(messaggio As String)
+    'Questa routine non restituisce un valore ma esegue un'azione
+    MsgBox messaggio, vbInformation, "Un messaggio per te:"
+End Sub
+Function moltiplicazione(numero1 As Integer, numero2 As Integer) As Integer
+    ' Questa routine restituisce un valore ed esegue una azione
+    moltiplicazione = numero1 * numero2
+End Function
+
+Sub la_prima_macro_con_vba()
+    testo = "Il risultato della moltiplicazione è: "
+    
+    ' La seguente variabile è visibile solo all'interno della funzione
+    Dim ris As Integer
+    
+    ris = moltiplicazione(5, 5)
+    risultato = testo & CStr(ris)
+    inviamessaggio (risultato)
+End Sub
+
+</pre>
+
+<br><center><img src="img/macrovba5.png" width="70%"><br></center>
+<p>Si può notare come la routine <code>inviamessaggio()</code> esegua un azione (creare un message box) ma non restituisce un valore, mentre al contrario la funzione <code>moltiplicazione()</code> esegue un operazione e restituisce come valore il risultato.</p>
+La terza routine esegue la moltiplicazione tra 5 e 5 attraverso la seconda funzione e restituisce il risultato come messaggio utilizzando la prima routine. Per far partire lo svolgimento di questo primo piccolo programma clicchiamo su <code>Esegui > Esegui Sub/UserForm</code> o clicchiamo F5.<br>
+ 
+
+<br><center><img src="img/macrovba6.png" width="70%"><br></center>
+<br>Selezioniamo poi la macro che vogliamo far partire ossia <b>la_prima_macro_con_vba</b> e clicchiamo su Esegui<br>
+
+<br><center><img src="img/macrovba7.png" width="40%"><br></center>
+<br>Il risultato finale che ci compare è:
+
+<br><center><img src="img/macrovba8.png" width="40%"><br></center>
+<p>Questa macro che abbiamo creato non è particolarmente utile ma spero aiuti a capire il funzionamento di come programmare in VBA.</p>
         <br><br><br>
   </div>
    <!-- Footer -->
