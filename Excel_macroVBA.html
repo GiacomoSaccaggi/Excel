@@ -397,9 +397,30 @@ In VBA per gestire questo tipo di eccezioni si utilizza il SE (ossia IF):
     <td class="tg-0lax">Diverso (utilizzabile anche con le stringhe)</td>
   </tr>
 </table>
-
-
 </li></ul>
+<br><br>Per comprendere l'utilizzo di questa procedura facciamo un esempio:<br><br>
+
+<b>Si vuole creare un input box nel quale dobbiamo inserire un valore e restituiamo come messaggio un messaggio differente in base a se il numero è maggiore, uguale o minore a 0:</b><br>
+<pre>
+Sub esempioIF()
+
+    Dim num As Integer
+    num = InputBox("Inserisci un valore ", "Esempio utilizzo If")
+    If num &gt; 0 Then
+        MsgBox "Il numero è positivo", vbInformation, "Risultato:"
+    ElseIf num &lt; 0 Then
+        MsgBox "Il numero è negativo", vbInformation, "Risultato:"
+    Else
+        MsgBox "Il numero è uguale a zero", vbInformation, "Risultato:"
+    End If
+End Sub
+</pre>
+<br><br>L'input box:<br>
+<br><center><img src="img/macrovba9.png" width="40%"><br></center>
+
+<br><br>I risultati in base al numero inserito:<br>
+<br><center><img src="img/macrovba9a.png" width="20%"><img src="img/macrovba9b.png" width="20%"><img src="img/macrovba9c.png" width="20%"><br></center>
+
         <br><br><br>
   </div>
    <!-- Footer -->
