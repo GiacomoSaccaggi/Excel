@@ -85,7 +85,7 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="site-heading">
-                        <h2>Excel - MACRO E VBA</h2>
+                        <h2>Excel - Visual Basic for Applications (VBA)</h2>
                         <hr class="small">
                         <h5>Uno strumento semplice e per chiunque</h5>
                     </div>
@@ -269,6 +269,137 @@ La terza routine esegue la moltiplicazione tra 5 e 5 attraverso la seconda funzi
 
 <br><center><img src="img/macrovba8.png" width="40%"><br></center>
 <p>Questa macro che abbiamo creato non è particolarmente utile ma spero aiuti a capire il funzionamento di come programmare in VBA.</p>
+<br><h1>Aumentiamo la difficoltà: If...Then...</h1>
+Quando programmiamo spesso capita di dover instruire il computer a fare una certa operazione se è presente una determinata caratteristica e a farne un'altra quando questa non fosse presente.<br>
+In VBA per gestire questo tipo di eccezioni si utilizza il SE (ossia IF):
+<pre>
+
+<b>If</b> condizione <b>Then</b>
+    'operazioni da eseguire se la condizione è rispettata
+    '...
+    '...
+    '...
+    <b>Else</b>
+    'operazioni da eseguire se la condizione no è rispettata
+    '...
+    '...
+    '...
+<b>End If</b>
+
+</pre>
+<br><br>Per definire una condizione si utilizzano tre tipi di operatori:<br>
+<ul><li><b>Operatori matematici </b><br><br>
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+  <tr>
+    <th class="tg-0lax">Operatore</th>
+    <th class="tg-0lax">Descrizione</th>
+    <th class="tg-0lax">Utilizzo</th>
+  </tr>
+  <tr>
+    <td class="tg-0lax">+</td>
+    <td class="tg-0lax">Somma</td>
+    <td class="tg-0lax">Risultato = X + Y</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">-</td>
+    <td class="tg-0lax">Sottrazione</td>
+    <td class="tg-0lax">Risultato = X - Y</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">*</td>
+    <td class="tg-0lax">Moltiplicazione</td>
+    <td class="tg-0lax">Risultato = X * Y</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">/</td>
+    <td class="tg-0lax">Divisione, restituisce un numero a virgola mobile</td>
+    <td class="tg-0lax">Risultato = X / Y</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">\</td>
+    <td class="tg-0lax">Divisione, restituisce un numero intero</td>
+    <td class="tg-0lax">Risultato = X \ Y</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Mod</td>
+    <td class="tg-0lax">Divisione, restituisce solo il resto</td>
+    <td class="tg-0lax">Risultato = X Mod Y (il resto è un intero)</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">^</td>
+    <td class="tg-0lax">Potenza</td>
+    <td class="tg-0lax">Risultato = X ^ Y</td>
+  </tr>
+</table>
+<br><br></li><li><b>Operatori logici </b><br><br>
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+  <tr>
+    <th class="tg-0lax">Operatore</th>
+    <th class="tg-0lax">Descrizione</th>
+  </tr>
+  <tr>
+    <td class="tg-0lax">And</td>
+    <td class="tg-0lax">If condizione1 And condizione2 then...si verifica solo se entrambe le condizioni sono vere.</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Or</td>
+    <td class="tg-0lax">If condizione1 Or condizione2 then... si verifica se almeno una condizione è vera.</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Not</td>
+    <td class="tg-0lax">If Not condizione then... si verifica se “condizione” è falsa.</td>
+  </tr>
+</table>
+
+<br><br></li><li><b>Operatori di confronto </b><br><br>
+
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+  <tr>
+    <th class="tg-0lax">Operatore</th>
+    <th class="tg-0lax">Descrizione</th>
+  </tr>
+  <tr>
+    <td class="tg-0lax">&lt;</td>
+    <td class="tg-0lax">Minore</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">&lt;=</td>
+    <td class="tg-0lax">Minore o Uguale</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">&gt;</td>
+    <td class="tg-0lax">Maggiore</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">&gt;=</td>
+    <td class="tg-0lax">Maggiore o Uguale</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">&lt;&gt;</td>
+    <td class="tg-0lax">Diverso (utilizzabile anche con le stringhe)</td>
+  </tr>
+</table>
+
+
+</li></ul>
         <br><br><br>
   </div>
    <!-- Footer -->
