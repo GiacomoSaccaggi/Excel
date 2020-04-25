@@ -400,8 +400,9 @@ In VBA per gestire questo tipo di eccezioni si utilizza il SE (ossia IF):
 </li></ul>
 <br><br>Per comprendere l'utilizzo di questa procedura facciamo un esempio:<br><br>
 
-<b>Si vuole creare un input box nel quale dobbiamo inserire un valore e restituiamo come messaggio un messaggio differente in base a se il numero è maggiore, uguale o minore a 0:</b><br>
+<b>Si vuole creare un input box nel quale dobbiamo inserire un valore e restituiamo come messaggio un testo differente in base a se il numero è maggiore, uguale o minore di 0:</b><br>
 <pre>
+
 Sub esempioIF()
 
     Dim num As Integer
@@ -414,6 +415,7 @@ Sub esempioIF()
         MsgBox "Il numero è uguale a zero", vbInformation, "Risultato:"
     End If
 End Sub
+
 </pre>
 <br><br>L'input box:<br>
 <br><center><img src="img/macrovba9.png" width="40%"><br></center>
