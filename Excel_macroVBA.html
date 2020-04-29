@@ -211,6 +211,8 @@ End Sub
   </tr>
 </table>
 
+
+
 <p>Prima di poter vedere come dichiarare una variabile occorre definire il concetto di routine. In Visual Basic esistono due tipi di routine:<ul><li>
 Routine Sub: svolgono operazioni ma non restituiscono un valore.</li><li>
 Routine Function: svolgono operazioni e restituiscono un valore.</li></ul></p>
@@ -269,6 +271,55 @@ La terza routine esegue la moltiplicazione tra 5 e 5 attraverso la seconda funzi
 
 <br><center><img src="img/macrovba8.png" width="40%"><br></center>
 <p>Questa macro che abbiamo creato non è particolarmente utile ma spero aiuti a capire il funzionamento di come programmare in VBA.</p>
+
+
+
+
+<br><br>
+Come ultimo argomento di questa prima sezione analizziamo gli Array ossia dei vettori contenenti degli elementi.<br>
+<b>Array:</b> Un array è un insieme organizzato di elementi omogenei, identificati da uno stesso nome e da uno o più indici.
+
+
+
+
+
+
+<pre>
+
+'Metodo 1 : Usare Dim
+Dim arr1()	'arrey di dimensione 0
+
+'Metodo 2 : Specificare la dimensione
+Dim arr2(5)  'Dimensione di 5 elementi
+
+'Metodo 3 : Utilizzare 'Array' per specificare i parametri
+Dim arr3
+arr3 = Array("elemento1","elemento2","elemento3")
+
+
+
+
+</pre>
+
+<br>Specificare le differenti tipologie di elementi:<br><br>
+<pre>
+Dim arr(5)
+arr(0) = "1"           'Numero come String
+arr(1) = "VBScript"    'String
+arr(2) = 100 		       'Numero intero
+arr(3) = 2.45 		     'Numero decimale
+arr(4) = #16/08/2020#  'Data
+arr(5) = #14.15 PM#    'Ora
+
+</pre>
+
+
+<b>Solitamente a senso inserire all'interno di un array valori con lo stesso formato</b><br>
+
+
+
+
+
 <br><h1>Aumentiamo la difficoltà: If...Then...</h1>
 Quando programmiamo spesso capita di dover instruire il computer a fare una certa operazione se è presente una determinata caratteristica e a farne un'altra quando questa non fosse presente.<br>
 In VBA per gestire questo tipo di eccezioni si utilizza il SE (ossia IF):
@@ -422,6 +473,116 @@ End Sub
 
 <br><br>I risultati in base al numero inserito:<br>
 <br><center><img src="img/macrovba9a.png" width="20%"><img src="img/macrovba9b.png" width="20%"><img src="img/macrovba9c.png" width="20%"><br></center>
+
+<br><h1>Ripetere azioni per più volte:</h1><br>
+
+
+<p>Ci sono diversi metodi per ripetere azioni pù volte in base a quello che dobbiamo fare. Il primo metodo che guardiamo è il ciclo FOR (TO e EACH) e poi approfondiremo la reiterazione con il Do (Until e While).</p>
+<hr>
+<h4>For To</h4>
+
+
+
+<pre>
+
+
+<b>For</b> Counter = Start <b>To</b> End [<b>Step</b> Value]
+[Azioni da reiterare]
+<b>Next</b> [counter]
+
+
+</pre>
+
+
+Guardiamo un esempio:<br>Vogliamo aggiungere in diagonale un valore in una matrice 7x7<br>
+<pre>
+
+Dim i As Integer
+
+For i = 1 To 7
+    Foglio1.Cells(i, i).Value = 100
+Next i
+
+
+</pre>
+
+<br><center><img src="img/for1a.png" width="40%"><img src="img/for1b.png" width="40%"><br></center>
+
+
+
+
+Adesso proviamo a modificare lo step:
+<pre>
+
+Dim i As Integer
+
+For i = 1 To 6 Step 2
+    Foglio1.Cells(i, i).Value = 100
+Next i
+
+
+</pre>
+
+<br><center><img src="img/for2a.png" width="40%"><img src="img/for2b.png" width="40%"><br></center>
+
+<p>Per mettere delle eccezioni per le quali il ciclo for si deve interrompere si consiglia di utilizzare un <code>IF</code> per defiire l'eccezione e al suo interno <code>Exit For</code></p>
+<hr>
+<h4>For Each</h4>
+
+
+
+<pre>
+
+
+For Each element In collection
+[Azioni da reiterare]
+Next [element]
+
+
+</pre>
+
+
+Guardiamo un esempio:<br>Vogliamo aggiungere un dei fogli di calcolo con dei nomi contenuti in un array.
+<pre>
+
+
+Dim arr
+arr = Array("Contabilità", "Finanza", "Assicurazione")
+
+
+For Each b In arr
+  ActiveWorkbook.Sheets.Add(after:=ActiveWorkbook.Sheets(ActiveWorkbook.Sheets.Count)).Name = b
+Next b
+
+
+
+</pre>
+
+<br><center><img src="img/for3a.png" width="40%"><img src="img/for3b.png" width="40%"><br></center>
+
+
+Guardiamo un altro esempio:<br>Vogliamo sottolineare di rosso i valori contenuti nella prima colonna inferiori a 10. (occorre inserire dei valori nella prima colonna del foglio di calcolo)
+<pre>
+
+Dim valori As Range
+Dim colonna As Range
+Set colonna = Range("A1", Range("A1").End(xlDown))
+For Each valori In colonna
+    If valori.Value &lt; 10 Then
+        valori.Interior.Color = vbRed
+    End If
+Next valori
+
+
+
+</pre>
+
+<br><center><img src="img/for4a.png" width="40%"><img src="img/for4b.png" width="40%"><br></center>
+
+<hr>
+<h4>Do Until e Do While</h4>
+
+
 
         <br><br><br>
   </div>
