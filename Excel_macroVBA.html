@@ -273,6 +273,27 @@ La terza routine esegue la moltiplicazione tra 5 e 5 attraverso la seconda funzi
 <p>Questa macro che abbiamo creato non è particolarmente utile ma spero aiuti a capire il funzionamento di come programmare in VBA.</p>
 
 
+<br><h4>Richiamare un valore dal foglio di calcolo</h4>
+<p>Per poter inserire o poter operare con un valore inserito nel foglio di calcolo ci sono diversi i metodi, i principali metodi sono 2:</p>
+
+<ul><li>
+Range: questa funzione permette di di selezionare una cella o più celle consecutive inserendo come parametri interni la colonna espressa in lettere e la righa espressa in numeri (es. "A1")
+
+
+<br><center><img src="img/richiamare1.png" width="40%"><br></center>
+</li><li>
+Cells: questa funzione permette di di selezionare una cella o più celle consecutive inserendo come parametri interni la colonna espressa in numeri e la righa espressa in numeri (es. "A1" = posizione [1,1])
+
+
+<br><center><img src="img/richiamare2.png" width="40%"><br></center>
+</li>
+</ul>
+
+
+
+
+
+
 
 
 <br><br>
@@ -580,10 +601,58 @@ Next valori
 <br><center><img src="img/for4a.png" width="40%"><img src="img/for4b.png" width="40%"><br></center>
 
 <hr>
-<h4>Do Until e Do While</h4>
+<h4>Do Until e Do While</h4><br>
+Differenze<br>
+<ul><li>While. Esegue l'iterazione finchè la condizione è vera e la termina quando diventa falsa. </li><li>Until. Esegue l'iterazione fino a che la condizione è falsa. Termina l'iterazione quando è vera.</li></ul>
+
+Ci sono due modalità per dichiarare questa reiterazione, dichiarando la condizione di interruzione all'inizio:
+<pre>
+
+<b>Do { While | Until }</b> [condizione]
+[Azioni da reiterare]
+<b>Loop</b>
+</pre>
+ e dichiarando la condizione di interruzione alla fine:
+<pre>
+<b>Do</b>
+[Azioni da reiterare]
+<b>Loop { While | Until }</b> [condizione]
+</pre>
+<br><b>Per una mia comprensione logica io preferisco sempre mettere la condizione all'inizio e mi trovo più spesso ad utilizzare Until piuttosto che While ma "De gustibus non disputandum".</b><br>
+<br>
+Guardiamo un esempio:<br>Vogliamo sommare i numeri da 1 a 10 (questo stesso problema può essere affrontato da due punti di vista differenti):<br>
+<pre>
 
 
+Sub prova1()
+Dim i As Integer
+i = 1
+Do Until i &gt; 10
+    'continuo a sommare fino a quando trovo
+    'un valore maggiore di 10
+    Result = Result + i
+    i = i + 1
+Loop
+MsgBox Result
+End Sub
+<hr>
+Sub prova2()
+Dim i As Integer
+i = 1
+Do While i &lt;= 10
+    'continuo a sommare fino a quando non trovo
+    'un valore minore uguale di 10
+    Result = Result + i
+    i = i + 1
+Loop
+MsgBox Result
+End Sub
 
+
+</pre>
+<br><center><img src="img/loop1.png" width="60%"><br></center>
+
+<br><center><img src="img/loop2.png" width="20%"><br></center>
         <br><br><br>
   </div>
    <!-- Footer -->
