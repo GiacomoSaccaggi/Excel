@@ -653,6 +653,126 @@ End Sub
 <br><center><img src="img/loop1.png" width="60%"><br></center>
 
 <br><center><img src="img/loop2.png" width="20%"><br></center>
+
+<h1>Facciamo un po' di chiarezza! </h1>
+<h4>Una sintesi un po' più strutturata</h4>
+<p>Una pagina di excel (worksheet) è un oggetto parte di un insieme di pagine (worksheets), contenute nel foglio di lavoro (workbook), ed è composta e contiene oggetti:
+<ul>
+  <li>
+    Application:<br>
+    indica la sessione di Excel, quindi tutti i fogli aperti.
+
+  </li><li>
+    Workbook<br>
+    rappresenta una cartella di lavoro di Excel questo oggetto viene spesso utilizzato per progetti che coinvolgono più fogli di lavoro.
+
+  </li><li>
+    Worksheet<br>
+    rappresenta la singola pagina excel che a sua volta contiene altri oggetti.
+
+  </li><li>
+    Range<br>
+    come visto prima rappresenta un intervallo di celle, quindi dalla singola cella, righe o colonne, fino a una matrice di celle. 
+
+  </li><li>
+    Chart<br>
+    rappresenta un grafico o diagramma.
+
+  </li><li>
+    ChartObject<BR>
+    è un oggetto che rappresenta anch’esso un grafico, ma incorporato nella pagina (worksheet) ed è membro dell’insieme ChartObjects.
+    
+  </li><li>
+    ListObject<BR>
+    rappresenta una tabella Excel presente in una pagina (worksheets) ed è membro dell’insieme ListObjects.
+
+  </li><li>
+    PivotTable<br>
+    rappresenta una tabella pivot inserita in una pagina (worksheets) ed è membro dell’insieme PivotTables. 
+    
+  </li><li>
+    Selection<br>
+    è un oggetto speciale che memorizza o meglio indirizza all’oggetto selezionato con il metodo Select. Questo oggetto personalmente lo trovo molto comodo per creare macro con shortcut che posso utilizzare in diverse situazioni.
+
+  </li>
+</ul>
+</p>
+<p>Gli insiemi di oggetti ci permettono di identificare univocamente i singoli oggetti, ad esempio Workbook può essere inteso come un oggetto nel senso che posso modificare le proprietà del foglio di calcolo ma può anche identificare un insieme di oggetti in quanto all'interno del foglio ci saranno presenti tabelle o altro. 
+In questi casi si utilizza il nome al plurale degli oggetti per identicarne la categoria:
+
+
+<ul>
+  <li>
+    Workbooks<br> che contiene tutti gli oggetti Workbook (File di excel aperti) aperti in Excel.
+  </li><li>
+    Worksheets<br> insieme di tutti gli oggetti Worksheet (Fogli di calcolo presenti nel documento) nella cartella di lavoro specificata o attiva.
+  </li><li>
+    Sheets<br> insieme di tutte le pagine del foglio di lavoro specificato e contiene sia oggetti Worksheet, pagine standard, che ChartObjects. 
+  </li><li>
+    Charts<br> insieme dei grafici.
+  </li><li>
+    ChartObjects<br> insieme dei grafici incorporati nella pagina.
+  </li><li>
+    ListObjects<br> insieme delle tabelle presenti nelle pagine Excel.
+  </li><li>
+    PivotTables<br> insieme delle tabelle pivot presenti nella pagine.
+  </li>
+
+
+
+
+</ul> </p>
+
+<p>Di ogni oggetto posso definire le proprietà o utilizzarne dei metodi. In VBA per definire metodo e proprietà davanti all'oggetto si pone il <code>.</code>. Un esempio di definizione di una proprietà è: <code> Worksheets("Foglio1").Range("A1:B12").Font.Bold</code> imposta il grassetto; Un esempio di definizione di un metodo: <code> Worksheets("Foglio1").Range("A1:B12").Copy</code> copia le celle.</p>
+<br><b>Le principali proprietà:</b><br>
+ <style type="text/css">
+	table.tableizer-table {
+		border: 1px solid #CCC; 
+	} 
+	.tableizer-table td {
+		padding: 8px;
+		margin: 6px;
+		border: 2px solid #CCC;
+	}
+	.tableizer-table th {
+		background-color: #104E8B; 
+		color: #FFF;
+		font-weight: bold;
+	}
+</style>
+<table class="tableizer-table">
+<thead><tr class="tableizer-firstrow"><th></th><th>Nome</th><th>Descrizione</th></tr></thead><tbody>
+ <tr><td>1</td><td> Name</td><td>Tutti gli oggetti hanno un nome che può essere modificato o assegnato. Alcuni oggetti ne hanno due, per esempio le pagine (worksheet) hanno un nome formale (che possiamo modificare rinominando il foglio di calcolo) e un nome che corrisponde all'etichetta (che possiamo rinominare <code>ActiveWorkbook.Worksheets ("Foglio1"). Name = 'Nuovonome'</code>).</td></tr>
+ <tr><td>2</td><td> Value</td><td>Viene utilizzata per l'associazione di valori nelle celle è utilizzata spesso con gli oggetti range e cells (es. <code>Worksheets(1).Range("A1").Value = 100</code>).</td></tr>
+ <tr><td>3</td><td> Visible</td><td>Questa proprietà identifica la visibilità di un oggetto e può assumente un valore booleano: True o False (es. <code>Worksheets(1).Visible = False / True</code>).</td></tr>
+ <tr><td>4</td><td> Formula</td><td>Viene utilizzata per l'associazione di formule nelle celle è utilizzata spesso con gli oggetti range e cells (es. <code>Worksheets(1).Range("A1").Formula = "=SE(B1=""; "NA"; B1)"</code>)</td></tr>
+ <tr><td>5</td><td> FormulaR1C1</td><td>Viene utilizzata per l'associazione di formule con notazione R1C1 nelle celle è utilizzata spesso con gli oggetti range e cells (es. <code>Worksheets(1).Range("R1C1").Formula = "=SE(R1C2=""; "NA"; R1C2)"</code>) [notazione R1C1= "R+numero_riga+C+numero_colonna"]</td></tr>
+ <tr><td>6</td><td> Font</td><td>Questa proprietà definisce il font impiegato.</td></tr>
+ <tr><td>7</td><td> Count</td><td>Questa proprietà si utilizza con gli insiemi di oggetti e restituisce il numero di oggetti relativi presenti.</td></tr>
+ <tr><td>8</td><td> End</td><td>Questa proprietà di Range e rappresenta la fine della regione di celle in cui è presente la cella selezionata, in una delle quattro direzioni possibili: xlDown / xlUp / xlRight / xlLeft (es. <code>Range("A1").End(xlDown).Select</code>)</td></tr>
+ <tr><td>9</td><td> Offset</td><td>Questa proprietà di Range che restituisce una posizione vicina alla cella selezionata, bisogna indicare direzione e coordinate di spostamento (es. <code>Range("A1").Offset(1, 0)</code>).</td></tr>
+ <tr><td>10</td><td> Cells</td><td>Questa proprietà restituire una cella inserendo riga e colonna.</td></tr>
+ <tr><td>11</td><td> UsedRange</td><td>Questa proprietà di Worksheet che identifica l'area di lavoro della pagina (es. ActiveSheet.UsedRange.Copy).</td></tr>
+ <tr><td>12</td><td> DisplayAlerts</td><td>Questa proprietà di Application permette di sospendere gli allarmi automatici del sistema (es. Application.DisplayAlerts = False) attenzione però ad aprire file di cui non si conosce l'origine e sconsiglio di farlo ma in alcuni processi può essere utile.</td></tr>
+</tbody></table>
+<br><b>I principali metodi:</b><br>
+<table class="tableizer-table">
+<thead><tr class="tableizer-firstrow"><th></th><th>Nome</th><th>Descrizione</th></tr></thead><tbody>
+ <tr><td>1</td><td> Select</td><td>Questo funzione selezione un oggetto.</td></tr>
+ <tr><td>2</td><td> Activate</td><td>Questa funziona porta in primo piano un oggetto senza selezionarlo.</td></tr>
+ <tr><td>3</td><td> Add</td><td>Questo metodo è utilizzato per creare nuovi oggetti.</td></tr>
+ <tr><td>4</td><td> Copy</td><td>Questa funzione copia un certo elemento selezionato in precedenza.</td></tr>
+ <tr><td>5</td><td> Paste</td><td>Questa funzione incolla un certo elemento copiato in precedenza.</td></tr>
+ <tr><td>6</td><td> Delete</td><td>Questa funzione serve per eliminare un determinato oggetto.</td></tr>
+ <tr><td>7</td><td> Close</td><td>Questo metodo è utilizzato per chiudere un oggetto (workbook, userform, ecc.).</td></tr>
+ <tr><td>8</td><td> Save</td><td>Questa funzione permette di salvare il file.</td></tr>
+ <tr><td>9</td><td> PrintOut</td><td>Questa funzione consente di stampare l'oggetto specificato.</td></tr>
+ <tr><td>10</td><td> ClearContents</td><td>Questo metodo cancella il contenuto delle celle selezionate (formule e valori).</td></tr>
+ <tr><td>11</td><td> Autofill</td><td>Questa funzione dell'oggetto Range riempie in automatico le celle dell'intervallo dichiarato a partire dal contenuto di alcune celle (uguale allo strumento che possiamo richiamare con un doppio clic sul quadrato in basso a destra della selezione o trascinando la selezione in una direzione).</td></tr>
+</tbody></table>
+
+
+
         <br><br><br>
   </div>
    <!-- Footer -->
