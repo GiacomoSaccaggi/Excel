@@ -102,7 +102,7 @@
        
         <center><img src="img/sviluppo1.png" width="70%"><br></center>
         <p>All'interno di questa finestra troviamo una serie di oggetti che si possono utilizzare per aumentare le funzionalità di excel chiamati controlli. In Excel sono disponibili due tipi di controlli: i controlli modulo e controlli ActiveX.<br>
-        <ul><li>I controlli modulo sono i controlli originali compatibili con le versioni
+        <ul><li>I controlli modulo sono i controlli compatibili con le versioni
 precedenti di Excel, a partire dalla versione 5.0. I controlli modulo sono anche
 progettati per essere utilizzati nei fogli macro XLM. Quando si effettua un clic
 sul controllo, la macro viene eseguita. I controlli modulo sono utili quando si
@@ -141,8 +141,89 @@ codice VBA per elaborare gli eventi che si verificano per quel controllo.
         <center><img src="img/sviluppo2.png" width="70%"><br></center>
         <br>
         <center><img src="img/sviluppo3.png" width="30%"><br></center>
+        <p>Vediamo una piccola implementazioni di alcuni di questi strumenti per poi guardarli accuratamente nell'articolo successivo con un esempio più complesso.</p>
+        <p>In questa prima parte vogliamo creare creare il grafico di una retta del tipo <code>y = m x + c</code> inserendo come valori <code>m</code> e <code>c</code>.</p>
+        <p>Per scaricare il file con già l'esempio fatto <a href="Grafico.xlsm">cliccare qua</a>, è consigliabile però farlo in autonomia così da riuscire a capire fino in fondo come sviluppare. Di seguito viene mostrato passo passo come è stato implementato.</p>
+        <ul>
+        <li> Per prima cosa entriamo in modalità progettazione e inseriamo in un foglio di calcolo una casella di gruppo per contenere i componenti e all'interno di questa inseriamo due label, due Textbox e un pulsante.<br>
+        <center><img src="img/svilex1.png" width="70%"><br></center>
+        </li>
         
+        <li>
+        Clicchiamo con il tasto destro su uno dei componenti inseriti ed apriamo la casella delle proprietà:<br>
+        <center><img src="img/svilex2.png" width="70%"><br></center>
+        </li>
 
+        <li>Cambiamo il nome del pulsante in "Produci il grafico":<br>
+        <center><img src="img/svilex3.png" width="70%"><br></center>
+        </li>
+
+        <li>Cambiamo il nome con cui lo richiamiamo all'interno del codice:<br>
+        <center><img src="img/svilex4.png" width="70%"><br></center>
+        </li>
+
+        <li>Cambiamo il testo all'interno del primo label:<br>
+        <center><img src="img/svilex5.png" width="70%"><br></center>
+        </li>
+
+        <li>Cambiamo il testo all'interno del secondo label:<br>
+        <center><img src="img/svilex6.png" width="70%"><br></center>
+        </li>
+
+        <li>Cambiamo il nome con cui richiamiamo la text box riferita a <code>m</code> all'interno del codice in "m_input":<br>
+        <center><img src="img/svilex7.png" width="70%"><br></center>
+        </li>
+
+        <li>Cambiamo il nome con cui richiamiamo la text box riferita a <code>c</code> all'interno del codice in "c_input":<br>
+        <center><img src="img/svilex8.png" width="70%"><br></center>
+        </li>
+
+        <li>Una volta finita questa prima parte di impostazione della struttura clicchiamo due volte sul pulsante o apriamo VBA fino ad arrivare alla schermata:<br>
+        <center><img src="img/svilex9.png" width="70%"><br></center>
+        </li>
+
+        </ul>
+
+        <br>
+        Il codice che ho implementato in questa parte è il seguente:
+        <br>
+        <center><img src="img/svilex10.png" width="70%"><br></center>
+        <pre>
+
+Private Sub Calcola_Click()
+If Not IsNumeric(c_input.Value) Or Not IsNumeric(m_input.Value) Then
+    MsgBox "Inserisci i valori prima"
+Else
+
+
+    Dim m As Integer
+    Dim c As Integer
+    m = m_input.Value
+    c = c_input.Value
+    
+    Dim X
+    X = Array(-10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+    Dim Y(21)
+    For i = 0 To UBound(X)
+          Y(i) = m * X(i) + c
+    Next i
+    
+    
+    Range("A15") = "X"
+    Range("B15") = "Y"
+    Range("A16:A36") = Application.Transpose(X)
+    Range("B16:B36") = Application.Transpose(Y)
+    
+    ActiveSheet.Shapes.AddChart2(240, xlXYScatterLines).Select
+    ActiveChart.SetSourceData Source:=Range("A15:B36")
+
+End If
+End Sub
+
+        </pre>
+        <p>In questa semplce funzione per prima cose si controlla che i valori siano inseriti all'interno delle textbox e che questi siano dei numeri. Successivamente si va a prendere quei valori per costruire il grafico.</p>
+        
+<br><br><center><a href="Grafico.xlsm">Scaricare esempio</a></center>
 
         <br><br><br>
   </div>
